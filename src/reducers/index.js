@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 import { addArticle, ADD_ARTICLE } from '../actions/index';
 
-
-const testReducer = (state = {}, action) => {
-  switch(action.types){
+const initialState = {articles : []};
+export const testReducer = (state = initialState, action) => {
+  switch(action.type){
     case ADD_ARTICLE:
       return {
         ...state,
@@ -12,7 +12,7 @@ const testReducer = (state = {}, action) => {
     default: return state;
   }
 }
-
 export const rootReducer = combineReducers({
   testReducer
 });
+
