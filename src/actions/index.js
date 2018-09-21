@@ -1,3 +1,3 @@
-export const ADD_ARTICLE = "ADD_ARTICLE";
+export const TOGGLE_LOGIN = "TOGGLE_LOGIN";
 
-export const addArticle = article => ({ type: ADD_ARTICLE, payload: article });
+export const toggleLogin = isLoggedIn => ({ type: TOGGLE_LOGIN, isLoggedIn: isLoggedIn });

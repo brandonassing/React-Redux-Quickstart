@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
+import Board from './Board.js';
+import { Input } from 'antd';
 
+
+const styles = {
+  linkDiv: {
+    padding: "10px"
+  }
+}
 
 class Profile extends Component {
 
@@ -8,10 +15,17 @@ class Profile extends Component {
     super(props);
   }
 
+  submit () {
+    console.log("sumbit");
+  }
+
   render() {
     return(
         <div >
-        Profile
+          <div style={styles.linkDiv}>
+            <Input placeholder="Image url (press enter to submit)" onPressEnter={this.submit} />
+          </div>
+          <Board />
         </div>
     );
   }

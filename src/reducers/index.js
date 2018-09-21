@@ -1,18 +1,18 @@
 import { combineReducers } from 'redux'
-import { addArticle, ADD_ARTICLE } from '../actions/index';
+import { toggleLogin, TOGGLE_LOGIN } from '../actions/index';
 
-const initialState = {articles : []};
-export const testReducer = (state = initialState, action) => {
+const initialState = {isLoggedIn : false};
+
+export const userReducer = (state = initialState, action) => {
   switch(action.type){
-    case ADD_ARTICLE:
+    case TOGGLE_LOGIN:
       return {
         ...state,
-        articles: [...state.articles, action.payload]
+        isLoggedIn: action.isLoggedIn
       };
     default: return state;
   }
 }
 export const rootReducer = combineReducers({
-  testReducer
+  userReducer
 });
-
