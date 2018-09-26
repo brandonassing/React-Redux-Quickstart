@@ -7,6 +7,8 @@ import { Layout, Menu } from 'antd';
 import { connect } from 'react-redux';
 import { toggleLogin } from '../actions/index.js';
 
+
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -24,6 +26,14 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
+const styles = {
+  profileBackground: {
+    background: '#fff',
+    padding: 24,
+    minHeight: 280
+  }
+}
+
 class App extends Component {
 
   Logout(){
@@ -38,7 +48,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <Layout className="layout">
+        <Layout className="layout"  style={{minHeight: "100vh"}}>
           <Header>
             <Menu
               theme="dark"
@@ -54,17 +64,20 @@ class App extends Component {
                 }
               }}
             >
-              <Menu.Item key="Profile"><Link to="/profile">Profile</Link></Menu.Item>
               {
-                this.props.isLoggedIn ? <Menu.Item key="Logout">Logout</Menu.Item> : <Menu.Item key="Login">Login</Menu.Item>
+                this.props.isLoggedIn ? <Menu.Item key="Profile"><Link to="/profile">Profile</Link></Menu.Item> : null
+              }
+              {
+                this.props.isLoggedIn ? <Menu.Item key="Logout"><Link to="/">Logout</Link></Menu.Item> : <Menu.Item key="Login">Login</Menu.Item>
               }
 
             </Menu>
 
           </Header>
           <Content style={{ padding: '0 50px' }}>
-            <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+            <div style={styles.profileBackground}>
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/" component={Explore} />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>

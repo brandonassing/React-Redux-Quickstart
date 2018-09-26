@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import Background from '../assets/login-background.jpg';
+
+const styles = {
+}
 class Login extends Component {
 
   constructor(props) {
@@ -9,7 +13,7 @@ class Login extends Component {
   render() {
     return(
         <div>
-          Login
+        explore
         </div>
     );
   }

@@ -11,6 +11,7 @@ class Explore extends Component {
   render() {
     return(
         <div>
+          explore
           <Board />
         </div>
     );
